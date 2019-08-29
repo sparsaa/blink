@@ -1,6 +1,6 @@
-package com.wave.blink.sample;
+package com.github.sparsaa.blink.sample;
 
-import com.wave.blink.di.BlinkApplicationContext;
+import com.github.sparsaa.blink.di.BlinkApplicationContext;
 
 /**
  * TODO: add comment here

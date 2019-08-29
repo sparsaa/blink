@@ -5,8 +5,12 @@
 
     <groupId>com.github.sparsaa</groupId>
     <artifactId>blink</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
+
+    <name>blink</name>
+    <description>Blink is a lightweight and fast dependency injection framework. Blink uses classindex and jgrapht to manage dependency.</description>
+    <url>https://github.com/sparsaa/blink</url>
 
     <licenses>
         <license>
@@ -15,6 +19,32 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <name>Vipul Tiwari</name>
+            <email>vipull.tiwari@gmail.com</email>
+            <organization>Sparsaa</organization>
+            <organizationUrl>https://github.com/sparsaa</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/sparsaa/blink.git</connection>
+        <developerConnection>scm:git:ssh://github.com/sparsaa/blink.git</developerConnection>
+        <url>http://github.com/sparsaa/blink/tree/master</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <java.version>1.8</java.version>
@@ -41,6 +71,14 @@
             <artifactId>jgrapht-ext</artifactId>
             <version>1.0.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
@@ -148,14 +186,26 @@
                 <!-- plugins to upload jar to maven -->
 
                 <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.6.7</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.2.1</version>
                     <executions>
                         <execution>
-                            <id>default-deploy</id>
-                            <phase>deploy</phase>
+                            <id>attach-sources</id>
                             <goals>
-                                <goal>deploy</goal>
+                                <goal>jar-no-fork</goal>
                             </goals>
                         </execution>
                     </executions>
@@ -163,30 +213,11 @@
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
-                    <configuration>
-                        <localCheckout>true</localCheckout>
-                        <pushChanges>false</pushChanges>
-                        <mavenExecutorId>forked-path</mavenExecutorId>
-                        <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-gitexe</artifactId>
-                            <version>1.9.5</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.9.1</version>
                     <executions>
                         <execution>
-                            <id>attach-sources</id>
+                            <id>attach-javadocs</id>
                             <goals>
                                 <goal>jar</goal>
                             </goals>
@@ -196,39 +227,35 @@
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.5</version>
                     <executions>
-                    <execution>
-                    <id>attach-javadoc</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
                     </executions>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.6.7</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    </configuration>
+                </plugin>
+
 
             </plugins>
         </pluginManagement>
     </build>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
-    <scm>
-        <connection>scm:git:git://github.com/vipul05tiwari/Blink.git</connection>
-        <developerConnection>scm:git:git@github.com:vipul05tiwari/Blink.git</developerConnection>
-        <url>https://github.com/vipul05tiwari/Blink</url>
-        <tag>HEAD</tag>
-    </scm>
 
     <profiles>
         <!-- GPG Signature on release -->

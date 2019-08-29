@@ -1,4 +1,4 @@
-package com.wave.blink.di;
+package com.github.sparsaa.blink.di;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

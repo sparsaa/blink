@@ -1,4 +1,4 @@
-package com.wave.blink.di;
+package com.github.sparsaa.blink.di;
 
 import org.atteo.classindex.IndexAnnotated;
 
@@ -16,6 +16,6 @@ import java.lang.annotation.Target;
  */
 @IndexAnnotated
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface BlinkFactory {
+@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+public @interface BlinkBean {
 }

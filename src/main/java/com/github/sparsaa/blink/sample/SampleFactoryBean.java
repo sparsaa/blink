@@ -1,4 +1,4 @@
-package com.wave.blink.sample;
+package com.github.sparsaa.blink.sample;
 
 /**
  * TODO: add comment here

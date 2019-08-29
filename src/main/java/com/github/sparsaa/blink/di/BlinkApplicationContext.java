@@ -1,4 +1,4 @@
-package com.wave.blink.di;
+package com.github.sparsaa.blink.di;
 
 import com.mxgraph.layout.mxCircleLayout;
 import com.mxgraph.layout.mxIGraphLayout;

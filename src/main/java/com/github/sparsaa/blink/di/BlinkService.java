@@ -1,4 +1,6 @@
-package com.wave.blink.di;
+package com.github.sparsaa.blink.di;
+
+import org.atteo.classindex.IndexAnnotated;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,10 +12,10 @@ import java.lang.annotation.Target;
  * <p>
  * User: vipultiwari
  * Date: 29-04-2019
- * Time: 17:22
+ * Time: 17:23
  */
+@IndexAnnotated
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface BlinkValue {
-    String property();
+@Target(ElementType.TYPE)
+public @interface BlinkService {
 }

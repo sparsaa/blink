@@ -1,7 +1,7 @@
-package com.wave.blink.sample;
+package com.github.sparsaa.blink.sample;
 
-import com.wave.blink.di.BlinkBean;
-import com.wave.blink.di.BlinkFactory;
+import com.github.sparsaa.blink.di.BlinkBean;
+import com.github.sparsaa.blink.di.BlinkFactory;
 
 /**
  * TODO: add comment here
