@@ -5,7 +5,7 @@
 
     <groupId>com.github.sparsaa</groupId>
     <artifactId>blink</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>blink</name>
@@ -33,7 +33,8 @@
         <connection>scm:git:git://github.com/sparsaa/blink.git</connection>
         <developerConnection>scm:git:ssh://github.com/sparsaa/blink.git</developerConnection>
         <url>http://github.com/sparsaa/blink/tree/master</url>
-    </scm>
+      <tag>blink-1.0.0</tag>
+  </scm>
 
     <distributionManagement>
         <snapshotRepository>
