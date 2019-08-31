@@ -31,8 +31,8 @@
 
     <scm>
         <connection>scm:git:git://github.com/sparsaa/blink.git</connection>
-        <developerConnection>scm:git:ssh://github.com/sparsaa/blink.git</developerConnection>
-        <url>http://github.com/sparsaa/blink/tree/master</url>
+        <developerConnection>scm:git:https://github.com/sparsaa/blink.git</developerConnection>
+        <url>https://github.com/sparsaa/blink/tree/master</url>
       <tag>blink-1.0.0</tag>
   </scm>
 
