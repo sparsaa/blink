@@ -1,4 +1,4 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.sparsaa/blink/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.sparsaa/blink)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.sparsaa/blink?style=plastic)](https://search.maven.org/artifact/com.github.sparsaa/blink/1.0.3/jar)
 
 # Blink
 Blink is a lightweight and fast dependency injection framework. Blink uses [classindex](https://github.com/atteo/classindex) and [jgrapht](https://github.com/jgrapht/jgrapht) to manage dependency.
